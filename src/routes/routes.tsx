@@ -1,5 +1,7 @@
 import { Navigate, Route, Routes } from "react-router-dom";
 import { DashboardLayout } from "../components/organisms";
+import { useAuth } from "../hooks/useAuth";
+import { getDefaultRouteForRole } from "../interface/route";
 import { ForgotPasswordPage } from "../pages/auth/ForgotPasswordPage";
 import { LoginPage } from "../pages/auth/LoginPage";
 import { ResetPasswordPage } from "../pages/auth/ResetPasswordPage";
@@ -14,13 +16,21 @@ import { EditLeaveTypePage } from "../pages/leaveTypes/EditLeaveTypePage";
 import { LeaveTypesListPage } from "../pages/leaveTypes/LeaveTypesListPage";
 import { PublicHolidaysListPage } from "../pages/publicHolidays/PublicHolidaysListPage";
 import { LeaveBalancesPage } from "../pages/leaveBalances/LeaveBalancesPage";
+import { MyTeamPage } from "../pages/myTeam/MyTeamPage";
+import { CalendarPage } from "../pages/calendar/CalendarPage";
 import { ProtectedRoute } from "./ProtectedRoute";
 import { PublicRoute } from "./PublicRoute";
+
+const RootRedirect = () => {
+  const { isAuthenticated, user } = useAuth();
+  if (!isAuthenticated || !user) return <Navigate to="/login" replace />;
+  return <Navigate to={getDefaultRouteForRole(user.role)} replace />;
+};
 
 export const AppRoutes = () => {
   return (
     <Routes>
-      <Route path="/" element={<Navigate to="/leave-balances" replace />} />
+      <Route path="/" element={<RootRedirect />} />
 
       <Route
         path="/login"
@@ -56,7 +66,24 @@ export const AppRoutes = () => {
       >
         <Route path="/profile" element={<ProfilePage />} />
         <Route path="/change-password" element={<ChangePasswordPage />} />
-        <Route path="/leave-balances" element={<LeaveBalancesPage />} />
+        <Route
+          path="/leave-balances"
+          element={
+            <ProtectedRoute allowedRoles={["EMPLOYEE", "MANAGER"]}>
+              <LeaveBalancesPage />
+            </ProtectedRoute>
+          }
+        />
+        <Route path="/calendar" element={<CalendarPage />} />
+
+        <Route
+          path="/my-team"
+          element={
+            <ProtectedRoute allowedRoles={["MANAGER"]}>
+              <MyTeamPage />
+            </ProtectedRoute>
+          }
+        />
 
         <Route
           path="/users"

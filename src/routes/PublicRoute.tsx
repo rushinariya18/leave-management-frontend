@@ -1,16 +1,17 @@
 import type { ReactNode } from "react";
 import { Navigate } from "react-router-dom";
 import { useAuth } from "../hooks/useAuth";
+import { getDefaultRouteForRole } from "../interface/route";
 
 interface PublicRouteProps {
   children: ReactNode;
 }
 
 export const PublicRoute = ({ children }: PublicRouteProps) => {
-  const { isAuthenticated } = useAuth();
+  const { isAuthenticated, user } = useAuth();
 
-  if (isAuthenticated) {
-    return <Navigate to="/leave-balances" replace />;
+  if (isAuthenticated && user) {
+    return <Navigate to={getDefaultRouteForRole(user.role)} replace />;
   }
 
   return <>{children}</>;

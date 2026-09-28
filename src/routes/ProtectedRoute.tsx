@@ -2,6 +2,7 @@ import type { ReactNode } from "react";
 import { Navigate } from "react-router-dom";
 import { useAuth } from "../hooks/useAuth";
 import type { Role } from "../interface/auth";
+import { getDefaultRouteForRole } from "../interface/route";
 
 interface ProtectedRouteProps {
   children: ReactNode;
@@ -16,7 +17,7 @@ export const ProtectedRoute = ({ children, allowedRoles }: ProtectedRouteProps) 
   }
 
   if (allowedRoles && user && !allowedRoles.includes(user.role)) {
-    return <Navigate to="/leave-balances" replace />;
+    return <Navigate to={getDefaultRouteForRole(user.role)} replace />;
   }
 
   return <>{children}</>;

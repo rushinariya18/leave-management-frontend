@@ -39,7 +39,8 @@
   background-color: var(--color-background);
 }
 
-.sidebar__link--active {
+.sidebar__link--active,
+.sidebar__link--active:hover {
   background-color: var(--color-primary);
   color: #fff;
 }

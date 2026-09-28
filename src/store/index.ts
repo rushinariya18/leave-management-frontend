@@ -1,6 +1,7 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { registerAuthAccessors } from "../services/axiosInstance";
 import authReducer, { logout } from "./auth/authSlice";
+import calendarReducer from "./calendar/calendarSlice";
 import leaveBalancesReducer from "./leaveBalances/leaveBalancesSlice";
 import leaveRequestsReducer from "./leaveRequests/leaveRequestsSlice";
 import leaveTypesReducer from "./leaveTypes/leaveTypesSlice";
@@ -17,6 +18,7 @@ export const store = configureStore({
     publicHolidays: publicHolidaysReducer,
     leaveBalances: leaveBalancesReducer,
     leaveRequests: leaveRequestsReducer,
+    calendar: calendarReducer,
   },
 });
 

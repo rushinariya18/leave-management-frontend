@@ -6,3 +6,4 @@ export * from "./Spinner";
 export * from "./Avatar";
 export * from "./Badge";
 export * from "./Select";
+export * from "./Textarea";

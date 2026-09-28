@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { Badge, Spinner } from "../atoms";
+import { Badge, Button, Spinner } from "../atoms";
 import { useAppDispatch } from "../../hooks/useAppDispatch";
 import { useAppSelector } from "../../hooks/useAppSelector";
 import type { MyLeaveRequest, RequestStatus } from "../../interface/leaveRequest";
@@ -49,24 +49,25 @@ export const LeaveRequestListTable = ({ onRowClick }: LeaveRequestListTableProps
             <th>Days</th>
             <th>Status</th>
             <th>Decided By</th>
+            <th>View Request</th>
           </tr>
         </thead>
         <tbody>
           {itemsLoading && items.length === 0 ? (
             <tr>
-              <td colSpan={6} className="leave-request-table__empty">
+              <td colSpan={7} className="leave-request-table__empty">
                 <Spinner />
               </td>
             </tr>
           ) : items.length === 0 ? (
             <tr>
-              <td colSpan={6} className="leave-request-table__empty">
+              <td colSpan={7} className="leave-request-table__empty">
                 No leave requests found.
               </td>
             </tr>
           ) : (
             items.map((request) => (
-              <tr key={request.id} onClick={() => onRowClick(request)}>
+              <tr key={request.id}>
                 <td>{request.leaveType.name}</td>
                 <td>{formatDate(request.startDate)}</td>
                 <td>{formatDate(request.endDate)}</td>
@@ -75,6 +76,11 @@ export const LeaveRequestListTable = ({ onRowClick }: LeaveRequestListTableProps
                   <Badge variant={STATUS_VARIANT[request.status]}>{request.status}</Badge>
                 </td>
                 <td>{request.decidedBy?.name ?? "—"}</td>
+                <td>
+                  <Button type="button" variant="ghost" onClick={() => onRowClick(request)}>
+                    View
+                  </Button>
+                </td>
               </tr>
             ))
           )}

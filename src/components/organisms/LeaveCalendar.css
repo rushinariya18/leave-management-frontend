@@ -1,0 +1,107 @@
+.leave-calendar {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--spacing-md);
+}
+
+.leave-calendar__empty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--spacing-xl);
+}
+
+.leave-calendar .rbc-toolbar {
+  margin-bottom: var(--spacing-md);
+}
+
+.leave-calendar .rbc-toolbar button {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  color: var(--color-text);
+  background-color: var(--color-surface);
+}
+
+.leave-calendar .rbc-toolbar button:hover {
+  background-color: var(--color-background);
+}
+
+.leave-calendar .rbc-toolbar button.rbc-active,
+.leave-calendar .rbc-toolbar button.rbc-active:hover {
+  background-color: var(--color-primary);
+  border-color: var(--color-primary);
+  color: #fff;
+}
+
+.leave-calendar .rbc-toolbar-label {
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.leave-calendar .rbc-month-view,
+.leave-calendar .rbc-header,
+.leave-calendar .rbc-day-bg,
+.leave-calendar .rbc-month-row + .rbc-month-row,
+.leave-calendar .rbc-day-bg + .rbc-day-bg {
+  border-color: var(--color-border);
+}
+
+.leave-calendar .rbc-header {
+  color: var(--color-text-muted);
+  font-size: 13px;
+  font-weight: 600;
+  padding: var(--spacing-sm) 0;
+}
+
+.leave-calendar .rbc-off-range-bg {
+  background-color: var(--color-background);
+}
+
+.leave-calendar .rbc-today {
+  background-color: rgba(67, 56, 202, 0.06);
+}
+
+.leave-calendar .rbc-date-cell {
+  color: var(--color-text);
+  padding: var(--spacing-xs);
+}
+
+.leave-calendar .rbc-event {
+  border: none;
+  border-radius: var(--radius-sm);
+  padding: 2px 6px;
+  font-size: 12px;
+}
+
+.leave-calendar .rbc-show-more {
+  color: var(--color-primary);
+  background-color: transparent;
+}
+
+.leave-calendar-detail {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+}
+
+.leave-calendar-detail__row {
+  display: flex;
+  align-items: baseline;
+  gap: var(--spacing-md);
+}
+
+.leave-calendar-detail__row--note {
+  align-items: flex-start;
+}
+
+.leave-calendar-detail__label {
+  flex-shrink: 0;
+  width: 100px;
+  color: var(--color-text-muted);
+  font-size: 13px;
+  font-weight: 600;
+}

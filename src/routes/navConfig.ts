@@ -5,6 +5,18 @@ export const navConfig: NavItem[] = [
     label: "Leave Balances",
     path: "/leave-balances",
     icon: "📊",
+    allowedRoles: ["EMPLOYEE", "MANAGER"],
+  },
+  {
+    label: "Calendar",
+    path: "/calendar",
+    icon: "🗓️",
+  },
+  {
+    label: "My Team",
+    path: "/my-team",
+    icon: "🧑‍🤝‍🧑",
+    allowedRoles: ["MANAGER"],
   },
   {
     label: "Users",

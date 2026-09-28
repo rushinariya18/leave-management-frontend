@@ -14,3 +14,8 @@ export interface NavItem {
   icon: ReactNode;
   allowedRoles?: Role[];
 }
+
+export const getDefaultRouteForRole = (role: Role): string => {
+  if (role === "HR") return "/calendar";
+  return "/leave-balances";
+};

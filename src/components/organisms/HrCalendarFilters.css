@@ -1,0 +1,30 @@
+.hr-calendar-filters {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+  margin-bottom: var(--spacing-md);
+}
+
+.hr-calendar-filters .select {
+  max-width: 260px;
+}
+
+.hr-calendar-filters__checkbox {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  color: var(--color-text);
+  white-space: nowrap;
+}
+
+@media (max-width: 720px) {
+  .hr-calendar-filters {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .hr-calendar-filters .select {
+    max-width: none;
+    width: 100%;
+  }
+}

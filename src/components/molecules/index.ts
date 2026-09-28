@@ -1,4 +1,5 @@
 export * from "./FormField";
+export * from "./TextareaField";
 export * from "./PasswordInput";
 export * from "./OtpInput";
 export * from "./DropdownMenu";

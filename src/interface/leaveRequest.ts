@@ -31,3 +31,22 @@ export interface AuditLogEntry {
   createdAt: string;
   actor: { id: string; name: string; role: "EMPLOYEE" | "MANAGER" | "HR" };
 }
+
+export interface CreateLeaveRequestPayload {
+  leaveTypeId: string;
+  startDate: string;
+  endDate: string;
+  dayPart?: DayPart;
+  note?: string;
+}
+
+// Mirrors MyLeaveRequest; adds embedded employee info for the manager's team view.
+// Falls back to employeeId in the UI if `employee` is absent from the live response.
+export interface TeamPendingRequest extends MyLeaveRequest {
+  employee?: { id: string; name: string };
+}
+
+export interface LeaveRequestDetail extends MyLeaveRequest {
+  employee: { id: string; name: string; managerId?: string };
+  overlappingTeamRequests: TeamPendingRequest[];
+}

@@ -7,6 +7,7 @@ import { useAppDispatch } from "../../hooks/useAppDispatch";
 import { useAppSelector } from "../../hooks/useAppSelector";
 import { signinThunk } from "../../store/auth/authThunks";
 import type { SigninPayload } from "../../interface/auth";
+import { getDefaultRouteForRole } from "../../interface/route";
 
 const validationSchema = Yup.object({
   email: Yup.string().email("Enter a valid email").required("Email is required"),
@@ -23,7 +24,7 @@ export const LoginForm = () => {
   const handleSubmit = async (values: SigninPayload) => {
     const result = await dispatch(signinThunk(values));
     if (signinThunk.fulfilled.match(result)) {
-      navigate("/leave-balances", { replace: true });
+      navigate(getDefaultRouteForRole(result.payload.user.role), { replace: true });
     }
   };
 
