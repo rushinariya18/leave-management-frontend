@@ -1,0 +1,23 @@
+.dropdown {
+  position: relative;
+}
+
+.dropdown__trigger {
+  border: none;
+  background: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.dropdown__menu {
+  position: absolute;
+  top: calc(100% + var(--spacing-sm));
+  right: 0;
+  min-width: 180px;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.1);
+  overflow: hidden;
+  z-index: 20;
+}

@@ -1,0 +1,76 @@
+.user-detail {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-lg);
+  max-width: 640px;
+}
+
+.user-detail__header {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+}
+
+.user-detail__name {
+  margin: 0;
+  font-size: 20px;
+  color: var(--color-text);
+}
+
+.user-detail__badges {
+  display: flex;
+  gap: var(--spacing-sm);
+  margin-top: var(--spacing-xs);
+}
+
+.user-detail__fields {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--spacing-md);
+}
+
+.user-detail__field-label {
+  display: block;
+  color: var(--color-text-muted);
+  font-size: 13px;
+  margin-bottom: var(--spacing-xs);
+}
+
+.user-detail__section {
+  border-top: 1px solid var(--color-border);
+  padding-top: var(--spacing-md);
+}
+
+.user-detail__section h2 {
+  font-size: 16px;
+  margin: 0 0 var(--spacing-sm) 0;
+}
+
+.user-detail__leave-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+}
+
+.user-detail__leave-item {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-sm);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  font-size: 14px;
+}
+
+.user-detail__empty {
+  color: var(--color-text-muted);
+  font-size: 14px;
+}
+
+.user-detail__actions {
+  display: flex;
+  gap: var(--spacing-sm);
+}

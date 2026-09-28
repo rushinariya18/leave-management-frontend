@@ -1,0 +1,9 @@
+.profile-form {
+  max-width: 400px;
+}
+
+.profile-form .input:disabled {
+  background-color: var(--color-background);
+  color: var(--color-text-muted);
+  cursor: not-allowed;
+}

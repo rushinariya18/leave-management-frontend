@@ -1,0 +1,16 @@
+.assign-manager {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+  margin-bottom: var(--spacing-md);
+}
+
+.assign-manager__row {
+  display: flex;
+  gap: var(--spacing-sm);
+  align-items: center;
+}
+
+.assign-manager__row .select {
+  flex: 1;
+}

@@ -1,0 +1,37 @@
+.public-holiday-table-wrapper {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  overflow-x: auto;
+}
+
+.public-holiday-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.public-holiday-table th,
+.public-holiday-table td {
+  padding: var(--spacing-sm) var(--spacing-md);
+  text-align: left;
+  border-bottom: 1px solid var(--color-border);
+  white-space: nowrap;
+}
+
+.public-holiday-table th {
+  color: var(--color-text-muted);
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.public-holiday-table__empty {
+  text-align: center;
+  color: var(--color-text-muted);
+  padding: var(--spacing-xl);
+}
+
+.public-holiday-table-row__actions {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+}

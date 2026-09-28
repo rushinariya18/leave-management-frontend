@@ -1,0 +1,6 @@
+.error-text {
+  display: block;
+  margin-top: var(--spacing-xs);
+  font-size: 12px;
+  color: var(--color-danger);
+}
